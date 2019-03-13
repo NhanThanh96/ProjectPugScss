@@ -13,3 +13,13 @@ mixin nav_item(href, active)
     li(class= ['nav-item', active])
         a(href= href)
             block
+
+mixin thumbnail(imageName, title, summary, new : false)
+    - var isNew = new
+    div.thumnail
+        a(href="#")
+            img.thumbnail__img(src="images/#{imageName}.jpg", alt=title)
+            h4.thumbnail__title= title
+            p.thumbnail__summary= summary
+            if isNew
+                span.new kkkk!
