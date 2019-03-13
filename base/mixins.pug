@@ -1,0 +1,15 @@
+mixin nav_item_dropdown(href, active)
+    li(class= ['nav-item dropdown', active])
+        a(href=href)
+            block
+            i(class= 'fas fa-caret-down')
+mixin nav_item_dropright(href, active)
+    li(class= ['nav-item dropright', active])
+        a(href=href)
+            block
+            i(class= 'fas fa-caret-right')
+
+mixin nav_item(href, active)
+    li(class= ['nav-item', active])
+        a(href= href)
+            block

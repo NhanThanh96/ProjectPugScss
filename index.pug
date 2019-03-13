@@ -1,0 +1,47 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title Document
+        link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous")
+    include base/mixins.pug
+    include base/variables.pug
+    body
+        nav
+            .container
+                ul.navbar-nav
+                    li.nav-item-devider
+                        span
+                    li.nav-item
+                        a.nav-link(href="#")
+                            i(class="fab fa-github")
+                    li.nav-item
+                        a.nav-link(href="#")
+                            i(class="fab fa-twitter")
+                    li.nav-item
+                        a.nav-link(href="#")
+                            i(class="fab fa-instagram")
+                ul.navbar-nav
+                    +nav_item_dropdown("welcome.html", "active") Welcome
+                        ul.dropdown-menu
+                            each val, index in welcomeDropdown
+                                +nav_item( index + ".html")= val
+                    +nav_item_dropdown("landings.html") landings
+                        ul.dropdown-menu
+                            each val, index in langdingDropdown
+                                +nav_item( index + ".html")= val
+                    +nav_item_dropdown("landings.html") pages
+                        ul.dropdown-menu
+                            each val, index in pageDropdown
+                                +nav_item( index + ".html")= val
+                    +nav_item_dropdown("landings.html") components
+                        ul.dropdown-menu
+                            each val, index in componentsDropdown
+                                +nav_item( index + ".html")= val
+                    +nav_item_dropdown("landings.html") landings
+                    +nav_item("documentation.html") documentation
+                    +nav_item("purchase.html") purchase now
+                    
+
