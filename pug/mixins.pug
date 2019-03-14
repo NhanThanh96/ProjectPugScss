@@ -1,0 +1,62 @@
+mixin nav_item_dropdown(itemText, href, active)
+    li(class= ['nav-item dropdown', active])
+        a()= itemText
+            i(class= 'fas fa-caret-down nav-item__icon')
+        block
+mixin nav_item_dropright(href, active)
+    li(class= ['nav-item dropright', active])
+        a(href=href)
+            block
+            i(class= 'fas fa-caret-right ')
+
+mixin section_top(header, paragraph, hide, whiteText)
+    .section__top
+        if(whiteText)
+            h3.section__header.white-text= header
+        else
+            h3.section__header= header
+        if(hide)
+            p.section__paragraph.text-hide= paragraph
+        else
+            p.section__paragraph= paragraph
+mixin nav_item(href, active)
+    li(class= ['nav-item', active])
+        a(href= href)
+            block
+
+mixin thumbnail(imageName, title, summary, isNew, hide)
+    div.column-4.thumnail
+        a(href="#")
+            img.thumbnail__img(src= imageName, alt=title)
+            .thumbnail__content
+                h4.thumbnail__title= title 
+                    if isNew
+                        span.new New!
+                if(hide)
+                    p.thumbnail__summary.text-hide= summary
+                else
+                    p.thumbnail__summary= summary
+mixin feature(icon, title, content)
+    div.column-4.feature
+        .feature__icon 
+            span!= icon
+        h4.feature__title= title
+        p.feature__content= content
+
+mixin solution(imageName, icon, titlem, paragraph)
+    .solution
+        img(src= imageName, alt="solution image")
+        .solution__content
+            .solution__icon!= icon
+            h4.solution__title= title
+            p.solution__paragraph= paragraph
+
+mixin option(title, price)
+    .option
+        h4.option__title= title
+        h5.option__price = price
+        block
+        a.btn-outline(href="#") purchase now
+mixin list(content)
+    li.list= content
+        block
