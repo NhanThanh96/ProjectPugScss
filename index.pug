@@ -6,42 +6,96 @@ html(lang="en")
         meta(http-equiv="X-UA-Compatible", content="ie=edge")
         title Document
         link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous")
-    include base/mixins.pug
-    include base/variables.pug
+        link(rel="stylesheet", href="css/global.css")
+    include pug/mixins.pug
+    include pug/variables.pug
     body
-        nav
+        nav.navbar
+            .container.d-flex
+                a.logo(href="#") incline
+                .navbar-collapse.d-flex    
+                    ul.navbar-nav.d-flex
+                        li.nav-item-devider
+                            span
+                        li.nav-item
+                            a.nav-link(href="#")
+                                i(class="fab fa-github")
+                        li.nav-item
+                            a.nav-link(href="#")
+                                i(class="fab fa-twitter")
+                        li.nav-item
+                            a.nav-link(href="#")
+                                i(class="fab fa-instagram")
+        include pug/nav.pug
+        include pug/banner.pug
+        include pug/landing-section.pug
+        include pug/header-variant-section.pug
+        include pug/quote-section.pug
+        include pug/key-section.pug
+        section.section
             .container
-                ul.navbar-nav
-                    li.nav-item-devider
-                        span
-                    li.nav-item
-                        a.nav-link(href="#")
-                            i(class="fab fa-github")
-                    li.nav-item
-                        a.nav-link(href="#")
-                            i(class="fab fa-twitter")
-                    li.nav-item
-                        a.nav-link(href="#")
-                            i(class="fab fa-instagram")
-                ul.navbar-nav
-                    +nav_item_dropdown("welcome.html", "active") Welcome
-                        ul.dropdown-menu
-                            each val, index in welcomeDropdown
-                                +nav_item( index + ".html")= val
-                    +nav_item_dropdown("landings.html") landings
-                        ul.dropdown-menu
-                            each val, index in langdingDropdown
-                                +nav_item( index + ".html")= val
-                    +nav_item_dropdown("landings.html") pages
-                        ul.dropdown-menu
-                            each val, index in pageDropdown
-                                +nav_item( index + ".html")= val
-                    +nav_item_dropdown("landings.html") components
-                        ul.dropdown-menu
-                            each val, index in componentsDropdown
-                                +nav_item( index + ".html")= val
-                    +nav_item_dropdown("landings.html") landings
-                    +nav_item("documentation.html") documentation
-                    +nav_item("purchase.html") purchase now
-                    
-
+                .workflow-left
+                    h3.section__header Intuitive workflow
+                    ul.workflow-left__list
+                        +list("Speed up your development process with Gulp and BrowserSync live browser reload")
+                        +list("Speed up your development process with Gulp and BrowserSync live browser reload")
+                        +list("Speed up your development process with Gulp and BrowserSync live browser reload")
+                    a(href="#") Documentation
+                .workflow-right
+                    img(src="images/47.jpg", alt="workflow image")
+        section.section
+            .container
+                +section_top("Ultimate solution", "Easily create a website of any complexity with dozens of pages and independent components for any purpose.")
+                .solutions
+                    +solution("images/24.jpg","<i class='fas fa-check'></i>", "Support pages", "Finish off your website with multiple support pages included into the package.")
+                    +solution("images/24.jpg","<i class='fas fa-check'></i>", "Support pages", "Finish off your website with multiple support pages included into the package.")
+                    +solution("images/24.jpg","<i class='fas fa-check'></i>", "Support pages", "Finish off your website with multiple support pages included into the package.")
+        section.section
+            .container
+                +section_top("Pricing options", "Secure payment via Stripe or Paypal. 100% money back guarantee.")
+                .options
+                    +option("Standard license", "$49.00")
+                        ul
+                            +list("Use for a single product")
+                            +list("Non-paying users only")
+                            +list("Read")
+                                a(href="#") full description
+                    +option("Standard license", "$49.00")
+                        ul
+                            +list("Use for a single product")
+                            +list("Non-paying users only")
+                            +list("Read")
+                                a(href="#") full description
+        section.section
+            .container
+                .section__left
+                    h3.section__header Download it from the Bootstrap marketplace
+                    p.section__paragraph Each theme featured at the Bootstrap marketplace has been reviewed by Bootstrap's creators. Six month technical support by the theme author is provided.
+                .section__right
+                    a.btn-outline(href="#") purchase now
+        footer
+            .container
+                .footer__left   
+                    p
+                        a.logo(href="#") incline
+                    p.copyright © Copyright 2019 Simpleqode. All rights reserved.
+                .footer__right
+                    ul.menu__footer
+                        li
+                            a(href="#") Terms and conditions
+                        li
+                            a(href="#") Privacy policy
+                        li
+                            a(href="#") Contact us
+                    ul.navbar-nav
+                        li.nav-item
+                            a.nav-link(href="#")
+                                i(class="fab fa-github")
+                        li.nav-item
+                            a.nav-link(href="#")
+                                i(class="fab fa-twitter")
+                        li.nav-item
+                            a.nav-link(href="#")
+                                i(class="fab fa-instagram")
+script(src= "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+script(src= "js/script.js")
