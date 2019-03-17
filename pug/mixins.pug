@@ -5,19 +5,19 @@ mixin navlist()
             class= menu.submenu ? "dropdown" : ""
             class= menu.active ? "active" : ""
             )
-            a(href= menu.url)= menu.name
+                a(href= menu.url)= menu.name
+                    if(menu.submenu)
+                        i(class= 'fas fa-caret-down nav-item__icon')
                 if(menu.submenu)
-                    i(class= 'fas fa-caret-down nav-item__icon')
-            if(menu.submenu)
-                ul.dropdown-menu
-                    each sub in menu.submenu
-                        li.nav-item
-                            a(href="#")= sub.name
-                            if(sub.subrights)
-                                ul.dropright-menu
-                                    each subright in sub.subrights
-                                        li.nav-item
-                                            a(href="#")= subright.name
+                    ul.dropdown-menu
+                        each sub in menu.submenu
+                            li.nav-item
+                                a(href="#")= sub.name
+                                if(sub.subrights)
+                                    ul.dropright-menu
+                                        each subright in sub.subrights
+                                            li.nav-item
+                                                a(href="#")= subright.name
 
 mixin nav_item_dropdown(itemText, href, active)
     li(class= ['nav-item dropdown', active])
@@ -65,20 +65,22 @@ mixin feature({icon, title, content})
         h4.feature__title= title
         p.feature__content= content
 
-mixin solution(imageName, icon, titlem, paragraph)
-    .solution
+mixin solution(imageName, icon, title, paragraph, bigger)
+    .column-4.solution(class= bigger ? "solution--bigger" : "")
+        .bg-overlay
         img(src= imageName, alt="solution image")
         .solution__content
-            .solution__icon!= icon
+            .solution__icon
+                i(class= icon)
             h4.solution__title= title
             p.solution__paragraph= paragraph
 
 mixin option(title, price)
     .option
         h4.option__title= title
-        h5.option__price = price
+        h5.option__price= price
         block
-        a.btn-outline(href="#") purchase now
-mixin list(content)
-    li.list= content
+        a.btn-outline--black(href="#") purchase now
+mixin icon_item(content)
+    li.icon-item= content
         block
